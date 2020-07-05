@@ -47,8 +47,8 @@ J = sum(sum(((predicts - Y).^2).*R))/2;
 J_reg = (sum(sum(Theta.^2))+sum(sum(X.^2)))*lambda/2;
 J = J + J_reg;
 
-X_grad = ((X*Theta').*R - Y)*Theta;
-Theta_grad = ((X*Theta'.*R) - Y)'*X;
+X_grad = ((X*Theta'- Y).*R )*Theta;
+Theta_grad = ((X*Theta' - Y).*R)'*X;
 
 X_grad = X_grad + X*lambda;
 Theta_grad = Theta_grad + Theta*lambda;
